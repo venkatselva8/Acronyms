@@ -85,10 +85,10 @@ class AcronymFragment : Fragment() {
     private fun onSearchButtonClick() {
         val enteredText = binding.tvInput.text.toString()
         if (viewModel.isValidText(enteredText)) {
-            showToast("Please enter valid text")
-        } else {
             this.hideKeyboard()
             viewModel.getAcronymList(enteredText)
+        } else {
+            showToast("Please enter valid text")
         }
     }
 

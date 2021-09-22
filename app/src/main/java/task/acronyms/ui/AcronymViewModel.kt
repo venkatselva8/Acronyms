@@ -30,6 +30,6 @@ class AcronymViewModel constructor(private val repository: AcronymRepository) : 
     }
 
     fun isValidText(enteredText: String): Boolean {
-        return enteredText.isEmpty()
+        return enteredText.isNotEmpty()
     }
 }
