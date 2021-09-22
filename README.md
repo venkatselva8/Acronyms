@@ -7,4 +7,5 @@ Functional Acceptance Criteria:
 2. User is then presented with a list of corresponding meanings. 
 
 -- Project coded in Kotlin with MVVM & Data Binding
+
 -- APK file location: https://github.com/venkatselva8/Acronyms/blob/main/app/APK/AcronymAppV22Sept.apk
