@@ -20,6 +20,8 @@ import task.acronyms.R
 import task.acronyms.databinding.AcronymFragmentBinding
 import task.acronyms.network.AcronymRepository
 import task.acronyms.network.RetrofitService
+import java.io.IOException
+import java.net.UnknownHostException
 
 
 class AcronymFragment : Fragment() {
@@ -65,8 +67,12 @@ class AcronymFragment : Fragment() {
             showToast("No data found")
         })
 
-        viewModel.errorMessage.observe(this, Observer {
-            Log.d("AcronymList", "error $it")
+        viewModel.errorApi.observe(this, Observer { throwable ->
+            if (throwable is UnknownHostException || throwable is IOException) {
+                showToast("Please check your internet connection")
+            } else {
+                showToast("Something went wrong. Please try again later")
+            }
         })
 
         binding.imbSearch.setOnClickListener {

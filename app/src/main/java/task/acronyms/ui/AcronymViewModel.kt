@@ -11,7 +11,7 @@ import task.acronyms.network.AcronymRepository
 class AcronymViewModel constructor(private val repository: AcronymRepository) : ViewModel() {
 
     val acronymList = MutableLiveData<List<AcronymResponse>>()
-    val errorMessage = MutableLiveData<String>()
+    val errorApi = MutableLiveData<Throwable>()
 
     fun getAcronymList(shortForm: String) {
         val response = repository.getListOfAcronym(shortForm)
@@ -24,7 +24,7 @@ class AcronymViewModel constructor(private val repository: AcronymRepository) : 
             }
 
             override fun onFailure(call: Call<List<AcronymResponse>>, t: Throwable) {
-                errorMessage.postValue(t.message)
+                errorApi.postValue(t)
             }
         })
     }
