@@ -7,6 +7,7 @@ Functional Acceptance Criteria given:
 2. User is then presented with a list of corresponding meanings. 
 
 -- Project coded in Kotlin with MVVM & Data Binding
+-- Coroutine implemented
 
 -- Basic Testcases : 
 
