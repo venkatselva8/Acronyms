@@ -65,8 +65,12 @@ class AcronymFragment : Fragment() {
             }
         })
 
-        viewModel.errorApi.observe(this, Observer { throwable ->
-            if (throwable is UnknownHostException || throwable is IOException) {
+        viewModel.errorApiMessage.observe(this, {
+            showToast(it)
+        })
+
+        viewModel.errorApi.observe(this, Observer { exception ->
+            if (exception is UnknownHostException || exception is IOException) {
                 showToast("Please check your internet connection")
             } else {
                 showToast("Something went wrong. Please try again later")

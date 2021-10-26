@@ -10,8 +10,8 @@ class AcronymLfAdapter : RecyclerView.Adapter<AcronymLfAdapter.LfViewHolder>() {
 
     var listOfLongForm = mutableListOf<LongForms>()
 
-    fun setAcronymLfList(movies: List<LongForms>) {
-        this.listOfLongForm = movies.toMutableList()
+    fun setAcronymLfList(lfs: List<LongForms>) {
+        this.listOfLongForm = lfs.toMutableList()
         notifyDataSetChanged()
     }
 

@@ -11,7 +11,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import task.acronyms.R
 
-
 @RunWith(AndroidJUnit4::class)
 class AcronymFragmentTest {
 
