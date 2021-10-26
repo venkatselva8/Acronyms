@@ -29,7 +29,5 @@ class AcronymViewModel constructor(private val repository: AcronymRepository) : 
         })
     }
 
-    fun isValidText(enteredText: String): Boolean {
-        return enteredText.isNotEmpty()
-    }
+    fun isValidText(enteredText: String):Boolean = enteredText.isNotEmpty()
 }

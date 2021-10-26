@@ -55,16 +55,14 @@ class AcronymFragment : Fragment() {
 
         binding.recyclerview.adapter = acronymLfAdapter
 
-        viewModel.acronymList.observe(this, Observer {
+        viewModel.acronymList.observe(this, Observer { it ->
             Log.d("AcronymList", "$it")
-            if (it.isNotEmpty()) {
-                if (it[0].lfs.isNotEmpty()) {
-                    acronymLfAdapter.setAcronymLfList(it[0].lfs)
-                    return@Observer
-                }
+            it?.firstOrNull()?.lfs?.let { lfs ->
+                acronymLfAdapter.setAcronymLfList(lfs)
+            } ?: run {
+                acronymLfAdapter.clearData()
+                showToast("No data found")
             }
-            acronymLfAdapter.clearData()
-            showToast("No data found")
         })
 
         viewModel.errorApi.observe(this, Observer { throwable ->
